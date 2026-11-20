@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">PCB焊接缺陷检测</string>
+    <string name="pick_image">从相册选图</string>
+    <string name="take_photo">拍照</string>
+    <string name="live_mode">实时检测</string>
+    <string name="back">返回</string>
+    <string name="hint_idle">选图或拍照后自动检测</string>
+    <string name="loading_model">正在加载模型…</string>
+    <string name="model_ready">模型就绪：YOLO26m · 9 类焊接/装配缺陷</string>
+    <string name="detecting">检测中…</string>
+    <string name="no_defect">未检测到缺陷</string>
+    <string name="camera_permission_needed">需要相机权限才能实时检测</string>
+</resources>

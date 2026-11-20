@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Pcb" parent="@android:style/Theme.Material.Light.NoActionBar">
+        <item name="android:colorPrimary">#FF1B6B3A</item>
+        <item name="android:colorAccent">#FF2E9E5B</item>
+        <item name="android:windowBackground">#FFF7F9F8</item>
+        <item name="android:statusBarColor">#FF14532D</item>
+    </style>
+
+    <style name="Theme.Pcb.Dark" parent="@android:style/Theme.Material.NoActionBar">
+        <item name="android:colorPrimary">#FF1B6B3A</item>
+        <item name="android:colorAccent">#FF2E9E5B</item>
+        <item name="android:windowBackground">#FF0B0F0D</item>
+        <item name="android:statusBarColor">#FF0B0F0D</item>
+    </style>
+</resources>

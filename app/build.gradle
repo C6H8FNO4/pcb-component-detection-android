@@ -1,0 +1,64 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.c6h8fno4.PcbSolderDefectDetection'
+    compileSdk 36
+
+    defaultConfig {
+        applicationId "com.c6h8fno4.PcbSolderDefectDetection"
+        minSdk 24
+        targetSdk 36
+        versionCode 5
+        versionName "2.3"
+        ndk {
+            // ONNX Runtime 只带这几个 ABI；x86_64 是为了在模拟器上也能跑
+            abiFilters 'arm64-v8a', 'x86_64'
+        }
+    }
+
+    // 按 ABI 拆包：手机装 arm64 那个（体积小），模拟器用 x86_64
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'arm64-v8a', 'x86_64'
+            universalApk true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+        }
+        release {
+            minifyEnabled false
+            // 自签名发布：不配置签名时会生成 unsigned，用 debug 签名便于直接安装
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    // 模型不压缩，避免运行时解压开销
+    androidResources {
+        noCompress 'onnx'
+    }
+}
+
+dependencies {
+    // CameraX：实时预览检测用
+    implementation 'androidx.camera:camera-core:1.6.2'
+    implementation 'androidx.camera:camera-camera2:1.6.2'
+    implementation 'androidx.camera:camera-lifecycle:1.6.2'
+
+    // 本地推理引擎（含 arm64-v8a / armeabi-v7a 的 so）
+    implementation 'com.microsoft.onnxruntime:onnxruntime-android:1.26.0'
+
+    // FileProvider（拍照存全尺寸图用）
+    implementation 'androidx.core:core:1.15.0'
+}
