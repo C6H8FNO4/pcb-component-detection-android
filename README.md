@@ -21,7 +21,7 @@
 | 640（备选） | 0.9151 | 0.6409 | 0.8973 | 0.9048 | 285 ms |
 
 **v2.2 已改回 800**，与作者配置保持一致；代价是单帧推理从 ~578 ms 回到 ~1050 ms。
-如果哪天更看重速度、可以接受这个差异，把 `Detector.INPUT_SIZE` 改成 640、并把 `assets/best.onnx` 换成 `webapp\models\solder_yolo26m_640.onnx` 即可。
+如果哪天更看重速度、可以接受这个差异：用 `imgsz=640` 重新导出一份 ONNX 覆盖 `app/src/main/assets/best.onnx`，并把 `Detector.INPUT_SIZE` 改成 640。
 
 > `150 epochs` 是训练参数，权重定型后对推理没有影响 —— App 里只有 `imgsz` 起作用。
 
