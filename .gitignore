@@ -1,0 +1,20 @@
+# Python（tools/ 里的脚本会用到）
+__pycache__/
+*.py[cod]
+.venv/
+venv*/
+
+# 源权重 .pt 不入库（体积大）；APK 只需要 assets 里的 .onnx
+*.pt
+
+# Gradle / Android 构建产物
+.gradle/
+.gradle-home/
+build/
+app/build/
+local.properties
+.idea/
+*.iml
+*.apk
+*.aab
+gradle-*/
